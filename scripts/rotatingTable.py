@@ -53,11 +53,11 @@ GPIO.output( in4, GPIO.LOW )
 
 motor_pins = [in1,in2,in3,in4]
 
-def getSpeed():
+def getStepSleep():
     with speedLock :
         return step_sleep
     
-def setSpeed(sleep):
+def setStepSleep(sleep):
     with speedLock :
         global step_sleep
         step_sleep = sleep
@@ -89,7 +89,7 @@ def rotate(data):
         return
 
     motor_step_counter = 0
-    sleep = getSpeed()
+    sleep = getStepSleep()
     for i in range(step_count):
         for pin in range(0, len(motor_pins)):
             GPIO.output( motor_pins[pin], step_sequence[motor_step_counter][pin] )
@@ -112,7 +112,7 @@ def setSpeed(data):
     min_step_sleep = 0.001
 
     sleep = max_step_sleep + (float(data.data - 1) * ((min_step_sleep - max_step_sleep)/99.0))
-    setSpeed(sleep)
+    setStepSleep(sleep)
     print(sleep)
 
 def listener():
@@ -131,5 +131,5 @@ if __name__ == "__main__":
                 componentError = True
             except:
                 print("Error: no number in the argument")
-    setSpeed(0.001)
+    setStepSleep(0.001)
     listener()
