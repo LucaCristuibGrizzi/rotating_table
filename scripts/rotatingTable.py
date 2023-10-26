@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 import time
 import threading, sys
 
-pub = rospy.Publisher('rs_rotating_table', Bool, queue_size=1)
+pub = rospy.Publisher('rs_rotating_table', String, queue_size=1)
 
 in1 = 17
 in2 = 18
@@ -104,7 +104,7 @@ def rotate(data):
         time.sleep( sleep )
 
     lowOutputPin()
-    pub.publish(True)
+    pub.publish("OK")
     exit( 0 )
 
 def setSpeed(data):
@@ -113,6 +113,7 @@ def setSpeed(data):
 
     sleep = max_step_sleep + (float(data.data - 1) * ((min_step_sleep - max_step_sleep)/99.0))
     setStepSleep(sleep)
+    print("set")
     print(sleep)
 
 def listener():
