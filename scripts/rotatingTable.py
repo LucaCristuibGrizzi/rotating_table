@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 import time
 import threading, sys
 
-pub = rospy.Publisher('rs_rotating_table', String, queue_size=1)
+pub = rospy.Publisher('rs_rotating_table', String, queue_size=10)
 
 in1 = 17
 in2 = 18
