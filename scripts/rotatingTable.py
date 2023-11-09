@@ -69,7 +69,7 @@ def getCounterComponentError():
 def addCounterComponentError():
     with componentErrorLock:
         global counterComponentError
-        counterComponentError =+ 1
+        counterComponentError += 1
 
 
 def cleanup():
@@ -83,6 +83,15 @@ def lowOutputPin():
     GPIO.output( in4, GPIO.LOW )
 
 def rotate(data):
+    if componentError and nComponentError == getCounterComponentError():
+        addCounterComponentError()
+        lowOutputPin()
+        pub.publish("OK")
+        exit(0)
+        return
+    
+    addCounterComponentError()
+
     if False:
         speed = 60
         pub.publish(str(speed))
