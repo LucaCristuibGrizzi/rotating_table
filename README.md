@@ -65,7 +65,7 @@ The computation is described by the following equation:
 
 $$ \textit{Step Output Shaft} = \frac{\textit{Step Input Shaft}}{\textit{Gearbox Ratio}} = \frac{64}{\frac{1}{64}} = 4096 \textit{ steps}$$
 
-$$ \textit{Step For 180\degree Rotation} = \textit{Step Output Shaft} \cdot \frac{Z_{\textit{top table}}}{Z_{\textit{driving gear}}} \cdot \frac{\textit{Desired Angle}}{360\degree} = \\ = 4096 \cdot \frac{85}{15} \cdot \frac{180\degree}{360\degree} = 11605 \textit{ steps}$$
+$$ \textit{Step For 180° Rotation} = \textit{Step Output Shaft} \cdot \frac{Z_{\textit{top table}}}{Z_{\textit{driving gear}}} \cdot \frac{\textit{Desired Angle}}{360°} = \\ = 4096 \cdot \frac{85}{15} \cdot \frac{180°}{360°} = 11605 \textit{ steps}$$
 
 ## Libraries Version
 
