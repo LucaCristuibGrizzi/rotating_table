@@ -1,4 +1,4 @@
-# Rotating Table
+# Rotating Table Package
 
 This package contains the script to control the rotating table and communicate its status with the production line.
 
@@ -14,6 +14,11 @@ The electronic components are the following:
 - **Raspberry Pi 3 B+**
 
 On the Raspberry Pi, the OS *Ubuntu Server 20.04 LTS* is installed, as it allows the installation of ROS, which is used for communication between this device and the production line.
+
+This package is intended to be used with another two packages:
+- [production_line_device](https://github.com/LucaCristuibGrizzi/production_line_device "production_line_device")
+- [production_line_behaviors](https://github.com/LucaCristuibGrizzi/production_line_behaviors "production_line_behaviors")
+
 
 ## Installation
 
