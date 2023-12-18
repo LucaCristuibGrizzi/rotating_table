@@ -64,6 +64,15 @@ export ROS_IP=<device’s IP address>
 
 ## Additional Information
 
+It is important to execute the shutdown operation of the Raspberry Pi correctly to avoid damaging the board or the data on the microSD. After killing the ROS node, execute the following command:
+
+```bash
+sudo halt -p
+```
+Note that you can disconnect the power supply after the green LED (ACT LED) stops blinking, and the red LED (PWR LED) remains fixed in the ON status.
+
+The LEDs also indicate the power-on operation. When the PWR LED stops blinking, the board is ready to execute its first command.
+
 The stepper motor 28BYJ-48, controlled in half-step, needs 64 steps to complete one revolution of the input shaft. The internal gearbox of the motor has a ratio of 1/64. So, 4096 steps are needed to execute a revolution of the output shaft. In the rotating table, a driving gear with 15 teeth is applied to the motor ($Z_{\textit{driving gear}} = 15$), and the top table has 85 internal teeth ($Z_{\textit{top table}} = 85$). This allows us to compute the motor steps needed for a rotation of the desired angle. In this case, the angle is 180°, and the resulting steps are 11605.
 
 The computation is described by the following equation:
